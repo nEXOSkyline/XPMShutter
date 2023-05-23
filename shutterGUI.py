@@ -4,7 +4,8 @@ from tkinter import ttk
 import numpy as np
 from tkinter import *
 import time
-#from WF_SDK import device, scope, wavegen	 # import instruments
+#from WF_SDK import device, scope, wavegen	 
+# import instruments
 #device_data = device.open()
 
 
@@ -35,13 +36,13 @@ class simpletest(Frame) :
 		if self.btn_var2.get() == 'OFF':
 			if self.solstate_prev==True:
 				listoftimes = np.fromstring(self.t1.get('1.0', 'end'), dtype=float, sep='\n')
-				# code for energizing
+				#code for energizing
 				energized = True
 				for index in range(0, len(listoftimes), 2):
 
 					#wavegen.generate(device_data, channel=1, function=wavegen.function.sine, offset=4.98, frequency=1e02,
 								#amplitude=0.02)
-					#time.sleep(listoftimes[index])
+					time.sleep(listoftimes[index])
 					#wavegen.generate(device_data, channel=1, function=wavegen.function.sine, offset=0.02, frequency=1e02,
 								#amplitude=0.02)
 					time.sleep(listoftimes[index + 1])
@@ -55,9 +56,9 @@ class simpletest(Frame) :
 
 					#wavegen.generate(device_data, channel=1, function=wavegen.function.sine, offset=0.02, frequency=1e02,
 							   #amplitude=0.02)
-					#time.sleep(listoftimes[index])
+					time.sleep(listoftimes[index])
 					#wavegen.generate(device_data, channel=1, function=wavegen.function.sine, offset=4.98, frequency=1e02,
-								 #amplitude=0.02)
+                                #amplitude=0.02)
 					time.sleep(listoftimes[index + 1])
 					
 				
