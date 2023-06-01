@@ -1,12 +1,12 @@
 import tkinter as tk
 from tkinter import ttk
-#import WF_SDK
+import WF_SDK
 import numpy as np
 from tkinter import *
 import time
-#from WF_SDK import device, scope, wavegen	 
-# import instruments
-#device_data = device.open()
+from WF_SDK import device, scope, wavegen	 
+import instruments
+device_data = device.open()
 
 
 class simpletest(Frame) :
@@ -40,11 +40,11 @@ class simpletest(Frame) :
 				energized = True
 				for index in range(0, len(listoftimes), 2):
 
-					#wavegen.generate(device_data, channel=1, function=wavegen.function.sine, offset=4.98, frequency=1e02,
-								#amplitude=0.02)
+					wavegen.generate(device_data, channel=1, function=wavegen.function.sine, offset=4.98, frequency=1e02,
+								amplitude=0.02)
 					time.sleep(listoftimes[index])
-					#wavegen.generate(device_data, channel=1, function=wavegen.function.sine, offset=0.02, frequency=1e02,
-								#amplitude=0.02)
+					wavegen.generate(device_data, channel=1, function=wavegen.function.sine, offset=0.02, frequency=1e02,
+								amplitude=0.02)
 					time.sleep(listoftimes[index + 1])
 					self.solstate_prev=False
 		  
@@ -54,11 +54,11 @@ class simpletest(Frame) :
 				listoftimes = np.fromstring(self.t2.get('1.0', 'end'), dtype=float, sep='\n')
 				for index in range(0, len(listoftimes), 2):
 
-					#wavegen.generate(device_data, channel=1, function=wavegen.function.sine, offset=0.02, frequency=1e02,
+					wavegen.generate(device_data, channel=1, function=wavegen.function.sine, offset=0.02, frequency=1e02,
 							   #amplitude=0.02)
 					time.sleep(listoftimes[index])
-					#wavegen.generate(device_data, channel=1, function=wavegen.function.sine, offset=4.98, frequency=1e02,
-                                #amplitude=0.02)
+					wavegen.generate(device_data, channel=1, function=wavegen.function.sine, offset=4.98, frequency=1e02,
+                                amplitude=0.02)
 					time.sleep(listoftimes[index + 1])
 					
 				
